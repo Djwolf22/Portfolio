@@ -19,7 +19,8 @@ var PROJECTS = [
             "Built a captive portal to collect test credentials for training purposes.",
             "Explained Wi-Fi security weaknesses to participants."
         ],
-        tech: "Skills: Raspberry Pi, PHP, wireless security, awareness training"
+        tech: "Skills: Raspberry Pi, PHP, wireless security, awareness training",
+        link: "https://devpost.com/software/evil-twin-attack#updates"
     }
 
     // --- To add a new project, copy the block below, fill it in, and add a comma above ---
