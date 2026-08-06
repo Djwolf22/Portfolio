@@ -11,6 +11,7 @@ var PROJECTS = [
         ],
         tech: "Skills: Malware analysis, log review, incident response, playbook improvement",
         link: "malware-analysis.html",
+        image: "assets/images/goose.png",
         ctaLabel: "Read full case study"
     },
     {
