@@ -3,13 +3,13 @@
 var PROJECTS = [
     {
         title: "Desktop Malware Analysis",
-        description: "Reverse-engineered mock malware deployed through endpoint management tools and traced infection paths through system and network logs.",
+        description: "Investigated an unauthorized program deployed across every machine in the SOC, tracing it from initial detection to the exact account responsible.",
         bullets: [
-            "Identified the simulated insider threat.",
-            "Mapped activity through endpoint and network evidence.",
-            "Updated SOC playbooks to improve incident response."
+        "Traced the file's deployment path to a shared SCCM location to determine how it reached multiple machines at once.",
+        "Reviewed the SCCM access control list and cross-referenced it with Active Directory to narrow down responsible accounts.",
+        "Built a complete case narrative from detection through resolution."
         ],
-        tech: "Skills: Malware analysis, log review, incident response, playbook improvement",
+        tech: "Skills: File path analysis, SCCM, Active Directory, access control review, incident investigation",
         link: "malware-analysis.html",
         image: "assets/images/goose.png",
         ctaLabel: "Read full case study"
