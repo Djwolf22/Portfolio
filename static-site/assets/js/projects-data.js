@@ -2,7 +2,7 @@
 // "bullets" and "tech" are optional; leave "tech" as an empty string to hide that line.
 var PROJECTS = [
     {
-        title: "Desktop Malware Analysis",
+        title: "Endpoint Deployment Case Study",
         description: "Investigated an unauthorized program deployed across every machine in the SOC, tracing it from initial detection to the exact account responsible.",
         bullets: [
         "Traced the file's deployment path to a shared SCCM location to determine how it reached multiple machines at once.",
