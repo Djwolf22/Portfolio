@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
             var linkAttrs = hasLink ? ' href="' + escapeHtml(project.link) + '" target="_blank" rel="noopener"' : '';
 
             html += '<' + tag + ' class="project-card"' + linkAttrs + '>';
+            if (project.image) {
+                html += '<div class="project-thumb"><img src="' + escapeHtml(project.image) + '" alt="' + escapeHtml(project.title) + ' preview" loading="lazy"></div>';
+            }
+            html += '<div class="project-card-body">';
             html += '<h2>' + escapeHtml(project.title) + '</h2>';
             html += '<p>' + escapeHtml(project.description) + '</p>';
             if (project.bullets && project.bullets.length) {
@@ -29,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (hasLink) {
                 html += '<span class="project-cta">View project &rarr;</span>';
             }
+            html += '</div>';
             html += '</' + tag + '>';
         });
         projectsList.innerHTML = html;
