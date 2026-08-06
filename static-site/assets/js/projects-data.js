@@ -9,7 +9,9 @@ var PROJECTS = [
             "Mapped activity through endpoint and network evidence.",
             "Updated SOC playbooks to improve incident response."
         ],
-        tech: "Skills: Malware analysis, log review, incident response, playbook improvement"
+        tech: "Skills: Malware analysis, log review, incident response, playbook improvement",
+        link: "malware-analysis.html",
+        ctaLabel: "Read full case study"
     },
     {
         title: "RowdyHacksX: Evil Twin Attack",
