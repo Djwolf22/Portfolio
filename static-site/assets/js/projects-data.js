@@ -20,7 +20,8 @@ var PROJECTS = [
             "Explained Wi-Fi security weaknesses to participants."
         ],
         tech: "Skills: Raspberry Pi, PHP, wireless security, awareness training",
-        link: "https://devpost.com/software/evil-twin-attack"
+        link: "https://devpost.com/software/evil-twin-attack",
+        image: "assets/images/rowdyhacksx-evil-twin.png"
     }
 
     // --- To add a new project, copy the block below, fill it in, and add a comma above ---
