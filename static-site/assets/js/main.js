@@ -9,7 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (projectsList && typeof PROJECTS !== 'undefined') {
         var html = '';
         PROJECTS.forEach(function (project) {
-            html += '<article class="project-card">';
+            var hasLink = project.link && project.link !== '#';
+            var tag = hasLink ? 'a' : 'article';
+            var linkAttrs = hasLink ? ' href="' + escapeHtml(project.link) + '" target="_blank" rel="noopener"' : '';
+
+            html += '<' + tag + ' class="project-card"' + linkAttrs + '>';
             html += '<h2>' + escapeHtml(project.title) + '</h2>';
             html += '<p>' + escapeHtml(project.description) + '</p>';
             if (project.bullets && project.bullets.length) {
@@ -22,7 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (project.tech) {
                 html += '<p class="tech">' + escapeHtml(project.tech) + '</p>';
             }
-            html += '</article>';
+            if (hasLink) {
+                html += '<span class="project-cta">View project &rarr;</span>';
+            }
+            html += '</' + tag + '>';
         });
         projectsList.innerHTML = html;
     }
