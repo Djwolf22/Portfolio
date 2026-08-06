@@ -10,7 +10,7 @@ var PROJECTS = [
         "Built a complete case narrative from detection through resolution."
         ],
         tech: "Skills: File path analysis, SCCM, Active Directory, access control review, incident investigation",
-        link: "malware-analysis.html",
+        link: "Endpoint-Deployment-Case-Study.html",
         image: "assets/images/goose.png",
         ctaLabel: "Read full case study"
     },
