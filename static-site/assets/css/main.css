@@ -548,6 +548,10 @@ h3 {
     gap: 10px;
 }
 
+.project-cta:hover {
+    gap: 10px;
+}
+
 .security-strip {
     margin-top: 22px;
 }
@@ -564,6 +568,32 @@ h3 {
 .tag-list {
     list-style: none;
     padding: 0;
+}
+
+.card ul:not(.tag-list) {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card ul:not(.tag-list) li {
+    position: relative;
+    padding-left: 22px;
+}
+
+.card ul:not(.tag-list) li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--cyan);
+    transform: rotate(45deg);
 }
 
 .table-wrap {

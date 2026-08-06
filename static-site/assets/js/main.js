@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var html = '';
         PROJECTS.forEach(function (project) {
             var hasLink = project.link && project.link !== '#';
+            var isExternal = hasLink && /^https?:\/\//i.test(project.link);
             var tag = hasLink ? 'a' : 'article';
-            var linkAttrs = hasLink ? ' href="' + escapeHtml(project.link) + '" target="_blank" rel="noopener"' : '';
+            var linkAttrs = hasLink ? ' href="' + escapeHtml(project.link) + '"' + (isExternal ? ' target="_blank" rel="noopener"' : '') : '';
 
             html += '<' + tag + ' class="project-card"' + linkAttrs + '>';
             if (project.image) {
@@ -31,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 html += '<p class="tech">' + escapeHtml(project.tech) + '</p>';
             }
             if (hasLink) {
-                html += '<span class="project-cta">View project &rarr;</span>';
+                var ctaText = project.ctaLabel ? project.ctaLabel : 'View project';
+                html += '<span class="project-cta">' + escapeHtml(ctaText) + ' &rarr;</span>';
             }
             html += '</div>';
             html += '</' + tag + '>';
