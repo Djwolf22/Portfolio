@@ -8,11 +8,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal.in-view {
+            opacity: 1;
+            transform: none;
+        }
+        .card-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .card-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+        .timeline .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .timeline .reveal:nth-child(3) { transition-delay: 0.2s; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition-duration: 0.001ms; }
+        }
+    </style>
 </head>
 <body>
     <div id="page">
-<div class="bg-orb one"></div>
-<div class="bg-orb two"></div>
 <header class="site-header">
     <nav class="navbar" aria-label="Primary navigation">
         <a class="brand" href="index.html">DR</a>
@@ -155,5 +171,32 @@
         </footer>
     </div>
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var els = document.querySelectorAll('main .card, main .timeline-item, main .command-panel, main .table-wrap');
+            els.forEach(function (el) {
+                el.classList.add('reveal');
+            });
+
+            if ('IntersectionObserver' in window && els.length) {
+                var observer = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+                els.forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                els.forEach(function (el) {
+                    el.classList.add('in-view');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
