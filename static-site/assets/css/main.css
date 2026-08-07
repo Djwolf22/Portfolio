@@ -459,6 +459,44 @@ h3 {
     display: grid;
     gap: 24px;
 }
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.contact-link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(85, 231, 255, 0.04);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.contact-link-row:hover {
+    border-color: rgba(85, 231, 255, 0.5);
+    background: rgba(85, 231, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.contact-link-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+}
+
+.contact-link-value {
+    font-weight: 600;
+    font-size: 1rem;
+}
 
 .card,
 .project-card {
