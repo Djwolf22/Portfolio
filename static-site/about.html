@@ -53,7 +53,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(22px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         .reveal.in-view {
             opacity: 1;
@@ -61,11 +61,29 @@
         }
         .card-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
         .card-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
-        .timeline .reveal:nth-child(2) { transition-delay: 0.1s; }
-        .timeline .reveal:nth-child(3) { transition-delay: 0.2s; }
+        .timeline .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .timeline .reveal:nth-child(3) { transition-delay: 0.16s; }
+
+        /* More vibrant: pulsing timeline dots + hover glow, matching Experience page */
+        .timeline-item::before {
+            animation: dot-pulse 2.2s ease-in-out infinite;
+        }
+        @keyframes dot-pulse {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(85, 231, 255, 0.16); }
+            50% { box-shadow: 0 0 0 9px rgba(85, 231, 255, 0.3); }
+        }
+        .timeline-content {
+            transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+        .timeline-content:hover {
+            border-color: rgba(85, 231, 255, 0.55);
+            box-shadow: 0 0 0 1px rgba(85, 231, 255, 0.25), 0 26px 50px rgba(85, 231, 255, 0.14);
+            transform: translateY(-2px);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .reveal { transition-duration: 0.001ms; }
-            body::before, .bg-orb { animation: none !important; }
+            body::before, .bg-orb, .timeline-item::before { animation: none !important; }
         }
     </style>
 </head>
