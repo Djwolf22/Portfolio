@@ -8,9 +8,71 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        /* Background drift */
+        @keyframes grid-drift {
+            from { background-position: 0 0, 0 0; }
+            to { background-position: 44px 44px, 44px 44px; }
+        }
+        body::before {
+            animation: grid-drift 50s linear infinite;
+        }
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .bg-orb.one {
+            width: 420px;
+            height: 420px;
+            top: -120px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(85, 231, 255, 0.28), transparent 70%);
+            animation: orb-drift-1 28s ease-in-out infinite;
+        }
+        .bg-orb.two {
+            width: 480px;
+            height: 480px;
+            bottom: -160px;
+            right: -140px;
+            background: radial-gradient(circle, rgba(255, 202, 106, 0.22), transparent 70%);
+            animation: orb-drift-2 34s ease-in-out infinite;
+        }
+        @keyframes orb-drift-1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(60px, 40px); }
+        }
+        @keyframes orb-drift-2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, -35px); }
+        }
+
+        /* Scroll reveal for timeline entries */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal.in-view {
+            opacity: 1;
+            transform: none;
+        }
+        .timeline .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .timeline .reveal:nth-child(3) { transition-delay: 0.2s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition-duration: 0.001ms; }
+            body::before, .bg-orb { animation: none !important; }
+        }
+    </style>
 </head>
 <body>
     <div id="page">
+<div class="bg-orb one"></div>
+<div class="bg-orb two"></div>
 <header class="site-header">
     <nav class="navbar" aria-label="Primary navigation">
         <a class="brand" href="index.html">DR</a>
@@ -32,7 +94,7 @@
 </section>
 
 <section class="section timeline">
-    <article class="timeline-item">
+    <article class="timeline-item reveal">
         <div class="timeline-date">July 2025 - Present</div>
         <div class="timeline-content">
             <h2>SOC Analyst 1</h2>
@@ -49,7 +111,7 @@
         </div>
     </article>
 
-    <article class="timeline-item">
+    <article class="timeline-item reveal">
         <div class="timeline-date">Jan 2023 - July 2025</div>
         <div class="timeline-content">
             <h2>SOC Security Analyst</h2>
@@ -66,7 +128,7 @@
         </div>
     </article>
 
-    <article class="timeline-item">
+    <article class="timeline-item reveal">
         <div class="timeline-date">Spring 2022 (4 mos.)</div>
         <div class="timeline-content">
             <h2>IT Apprentice</h2>
@@ -86,5 +148,28 @@
         </footer>
     </div>
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var revealEls = document.querySelectorAll('main .reveal');
+            if ('IntersectionObserver' in window && revealEls.length) {
+                var observer = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+                revealEls.forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                revealEls.forEach(function (el) {
+                    el.classList.add('in-view');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
