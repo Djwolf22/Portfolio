@@ -8,9 +8,83 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        /* Background drift */
+        @keyframes grid-drift {
+            from { background-position: 0 0, 0 0; }
+            to { background-position: 44px 44px, 44px 44px; }
+        }
+        body::before {
+            animation: grid-drift 50s linear infinite;
+        }
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .bg-orb.one {
+            width: 420px;
+            height: 420px;
+            top: -120px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(85, 231, 255, 0.28), transparent 70%);
+            animation: orb-drift-1 28s ease-in-out infinite;
+        }
+        .bg-orb.two {
+            width: 480px;
+            height: 480px;
+            bottom: -160px;
+            right: -140px;
+            background: radial-gradient(circle, rgba(255, 202, 106, 0.22), transparent 70%);
+            animation: orb-drift-2 34s ease-in-out infinite;
+        }
+        @keyframes orb-drift-1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(60px, 40px); }
+        }
+        @keyframes orb-drift-2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, -35px); }
+        }
+
+        /* Scroll reveal for the work cards */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal.in-view {
+            opacity: 1;
+            transform: none;
+        }
+        .card-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .card-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+
+        /* Typing cursor for console lines while typing is in progress */
+        .type-target.typing::after {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 1em;
+            margin-left: 2px;
+            background: var(--cyan);
+            vertical-align: text-bottom;
+            animation: cursor-blink 0.9s steps(1) infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition-duration: 0.001ms; }
+            body::before, .bg-orb { animation: none !important; }
+        }
+    </style>
 </head>
 <body>
     <div id="page">
+<div class="bg-orb one"></div>
+<div class="bg-orb two"></div>
 <header class="site-header">
     <nav class="navbar" aria-label="Primary navigation">
         <a class="brand" href="index.html">DR</a>
@@ -39,7 +113,7 @@
             <a class="button secondary" href="assets/files/Dominik-Rimpel-Resume.pdf" target="_blank">Open Resume</a>
         </div>
         <div class="quick-stats" aria-label="Profile stats">
-            <div class="stat"><span class="metric">3+ yrs</span><span>SOC experience</span></div>
+            <div class="stat"><span class="metric"><span id="statCounter">0</span>+ yrs</span><span>SOC experience</span></div>
             <div class="stat"><span class="metric">24/7</span><span>monitoring</span></div>
             <div class="stat"><span class="metric">OT + IT</span><span>security work</span></div>
         </div>
@@ -52,14 +126,15 @@
             <span class="dot"></span>
             <span class="console-title">soc-console</span>
         </div>
-        <p class="console-line">&gt; analyst.profile --load</p>
-        <ul>
+        <p class="console-line">&gt; <span id="typeLine1" class="type-target"></span></p>
+        <ul id="consoleList" style="opacity:0; transition: opacity 0.5s ease;">
             <li><span>Location</span> San Antonio, TX</li>
             <li><span>Focus</span> Detection + Response</li>
             <li><span>SIEM</span> Microsoft Sentinel / Splunk</li>
             <li><span>Certs</span> CySA+, Security+, SC-200</li>
         </ul>
-        <p class="console-line">status: <span class="highlight">ready for investigation</span></p>
+        <p class="console-line">local time: <span id="liveClock">--:--:--</span></p>
+        <p class="console-line">status: <span class="highlight" id="typeLine2"></span></p>
     </aside>
 </section>
 
@@ -67,15 +142,15 @@
     <p class="eyebrow">Core Work</p>
     <h2>What I Work On</h2>
     <div class="card-grid three">
-        <article class="card">
+        <article class="card reveal">
             <h3>Threat Detection</h3>
             <p>Writing and tuning detections across SIEM and NDR workflows to reduce false positives and improve visibility.</p>
         </article>
-        <article class="card">
+        <article class="card reveal">
             <h3>Incident Response</h3>
             <p>Classifying, prioritizing, documenting, and escalating alerts in high-availability environments.</p>
         </article>
-        <article class="card">
+        <article class="card reveal">
             <h3>Threat Hunting</h3>
             <p>Using KQL, SPL, and enriched threat intelligence to investigate anomalies and support proactive defense.</p>
         </article>
@@ -87,5 +162,99 @@
         </footer>
     </div>
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Typing effect for the console lines ---
+            function typeText(el, text, speed, onDone) {
+                if (!el) { if (onDone) onDone(); return; }
+                el.classList.add('typing');
+                var i = 0;
+                var interval = setInterval(function () {
+                    el.textContent = text.slice(0, i + 1);
+                    i++;
+                    if (i >= text.length) {
+                        clearInterval(interval);
+                        el.classList.remove('typing');
+                        if (onDone) onDone();
+                    }
+                }, speed);
+            }
+
+            var line1 = document.getElementById('typeLine1');
+            var line2 = document.getElementById('typeLine2');
+            var consoleList = document.getElementById('consoleList');
+
+            typeText(line1, 'analyst.profile --load', 40, function () {
+                if (consoleList) {
+                    setTimeout(function () {
+                        consoleList.style.opacity = '1';
+                        setTimeout(function () {
+                            typeText(line2, 'ready for investigation', 35);
+                        }, 350);
+                    }, 200);
+                } else {
+                    typeText(line2, 'ready for investigation', 35);
+                }
+            });
+
+            // --- Live clock (San Antonio, Central Time) ---
+            var clockEl = document.getElementById('liveClock');
+            if (clockEl) {
+                var updateClock = function () {
+                    var now = new Date();
+                    clockEl.textContent = now.toLocaleTimeString('en-US', {
+                        timeZone: 'America/Chicago',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false
+                    });
+                };
+                updateClock();
+                setInterval(updateClock, 1000);
+            }
+
+            // --- Animated stat counter (above the fold, so just run on load) ---
+            var statCounter = document.getElementById('statCounter');
+            if (statCounter) {
+                var target = 3;
+                var duration = 900;
+                var start = null;
+                var step = function (timestamp) {
+                    if (start === null) start = timestamp;
+                    var progress = Math.min((timestamp - start) / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    statCounter.textContent = Math.round(eased * target);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        statCounter.textContent = target;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            // --- Scroll reveal for the work cards ---
+            var revealEls = document.querySelectorAll('main .reveal');
+            if ('IntersectionObserver' in window && revealEls.length) {
+                var observer = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+                revealEls.forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                revealEls.forEach(function (el) {
+                    el.classList.add('in-view');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
