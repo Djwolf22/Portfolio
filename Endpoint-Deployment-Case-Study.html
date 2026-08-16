@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endpoint Deployment Case Study | Dominik Rimpel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="spotlight" id="spotlight"></div>
+<div class="bg-orb one"></div>
+<div class="bg-orb two"></div>
+<p class="side-label">Portfolio / 2026</p>
+
+<header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+        <a class="brand" href="index.html">DR</a>
+        <button id="menuButton" class="menu-button" type="button" aria-label="Open navigation">Menu</button>
+        <ul id="mainMenu" class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a class="active" href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="wrap">
+
+<div class="watermark">CASE</div>
+
+<section class="page-title">
+    <a class="cta-link" href="projects.html">&larr; Back to Projects</a>
+    <p class="eyebrow" style="margin-top:22px;"><span class="hex-badge"></span> Case Study</p>
+    <h1 class="page-heading">Endpoint Deployment <span class="accent">Case Study.</span></h1>
+    <p class="page-intro">A two week investigation into an unauthorized deployment across SOC machines, worked from file path to root cause with no dashboard shortcuts.</p>
+</section>
+
+<section class="section">
+    <div class="split">
+        <div class="console reveal">
+            <div class="console-top">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="title">case-file</span>
+            </div>
+            <p class="line">&gt; <span id="typeLine1" class="type-target" data-text="case.load --desktop-goose"></span></p>
+            <dl id="consoleList" style="opacity:0; transition:opacity 0.5s ease;">
+                <dt>Status</dt><dd>Closed</dd>
+                <dt>Duration</dt><dd>2 weeks</dd>
+                <dt>Classification</dt><dd>Internal exercise</dd>
+                <dt>Role</dt><dd>Lead investigator</dd>
+            </dl>
+            <p class="line">outcome: <span class="highlight" id="typeLine2" data-text="case solved"></span></p>
+        </div>
+
+        <div class="panel reveal">
+            <p class="section-label">// Project Goal</p>
+            <p style="color:var(--muted);">Identify two things: who deployed the program onto SOC machines, and how it reached multiple machines at once rather than just one.</p>
+            <div class="security-strip" style="margin-top:20px;">
+                <span>SCCM</span><span>Active Directory</span><span>ACL Review</span><span>File Path Analysis</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <p class="section-label">// Introduction</p>
+    <div class="case-card reveal">
+        <p>This desktop malware analysis project was an exercise I completed while working part time with the University of Texas at San Antonio Cyber SOC team. The goal was to test how well part time analysts and interns could investigate an unfamiliar event, rely on their own knowledge, and research what they did not immediately understand.</p>
+        <p>The exercise began when Desktop Goose appeared on my workstation. A goose ran around the screen, interfered with the mouse cursor, and generated random images and Notepad messages. At first, it looked like a harmless prank, but it became the start of a two week investigation.</p>
+    </div>
+</section>
+
+<section class="section">
+    <p class="section-label">// Investigation Timeline</p>
+    <h2 class="section-heading">Step by step.</h2>
+    <div class="timeline">
+        <article class="timeline-item reveal">
+            <div class="timeline-date">Step 01</div>
+            <div class="timeline-content">
+                <h2>Initial Tool Review</h2>
+                <ul><li>Followed the same approach as the rest of the team, checking Microsoft Defender, Splunk, Carbon Black, and DNS/DHCP data for indicators. After a while, this felt like moving in circles with no clear lead.</li></ul>
+            </div>
+        </article>
+        <article class="timeline-item reveal">
+            <div class="timeline-date">Step 02</div>
+            <div class="timeline-content">
+                <h2>Shifted to File Path Analysis</h2>
+                <ul><li>Instead of continuing to search dashboards, I leaned on past experience with Windows file systems from a prior school district IT role and began tracing the file directly at the system level.</li></ul>
+            </div>
+        </article>
+        <article class="timeline-item reveal">
+            <div class="timeline-date">Step 03</div>
+            <div class="timeline-content">
+                <h2>Found the SCCM Connection</h2>
+                <ul><li>Reviewing the file's location led to a shared path tied to SCCM (System Center Configuration Manager), a platform used to deploy software across multiple devices at once. <strong>This was the moment I identified the how.</strong></li></ul>
+            </div>
+        </article>
+        <article class="timeline-item reveal">
+            <div class="timeline-date">Step 04</div>
+            <div class="timeline-content">
+                <h2>Reviewed Access Control</h2>
+                <ul><li>I pulled the access control list for the SCCM resource to see which accounts had permission to push files through it. The list returned a broad set of possible users, too many to work through one by one efficiently.</li></ul>
+            </div>
+        </article>
+        <article class="timeline-item reveal">
+            <div class="timeline-date">Step 05</div>
+            <div class="timeline-content">
+                <h2>Used Active Directory to Narrow the Field</h2>
+                <ul><li>I cross referenced that list in Active Directory, comparing roles, titles, and permissions to find who actually had both the access and the responsibility to run a deployment like this. That narrowed it to two people connected to endpoint deployments. <strong>This identified the who.</strong></li></ul>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section">
+    <p class="section-label">// Resolution</p>
+    <div class="case-card reveal">
+        <p>Tier 2 SOC analysts and leadership had worked with the endpoint deployment team to run this as a planned exercise, designed as a challenge for analysts. In the end, I gathered enough evidence to build a realistic case narrative and was one of the few analysts over several years who solved it.</p>
+    </div>
+</section>
+
+<section class="section">
+    <p class="section-label">// Lessons Learned</p>
+    <div class="case-card reveal">
+        <ul>
+            <li>Tools are valuable, but an investigation still needs a clear hypothesis.</li>
+            <li>File paths and deployment locations can reveal the story behind an incident.</li>
+            <li>Access control lists become far more useful when paired with role and permission context.</li>
+            <li>Endpoint deployment systems can explain how one action reaches many devices at once.</li>
+            <li>A good analyst should know when to step away from dashboards and inspect the system directly.</li>
+        </ul>
+    </div>
+</section>
+</main>
+
+<footer>
+    <span>&copy; 2026 Dominik Rimpel</span>
+    <span>Built with HTML, CSS &amp; JavaScript</span>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

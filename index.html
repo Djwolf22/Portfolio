@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominik Rimpel | Cybersecurity Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="spotlight" id="spotlight"></div>
+<div class="bg-orb one"></div>
+<div class="bg-orb two"></div>
+<p class="side-label">Portfolio / 2026</p>
+
+<header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+        <a class="brand" href="index.html">DR</a>
+        <button id="menuButton" class="menu-button" type="button" aria-label="Open navigation">Menu</button>
+        <ul id="mainMenu" class="menu">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="wrap">
+
+<div class="watermark">SOC//DR</div>
+
+<section class="hero">
+    <p class="eyebrow"><span class="hex-badge"></span> Cybersecurity Portfolio</p>
+    <h1 class="mega">
+        <span class="line1">SOC Analyst &mdash;</span>
+        <span class="line2">Dominik <span class="accent">Rimpel.</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+        <p class="lede">Building cleaner detections, stronger investigations, and better response workflows across OT and IT infrastructure.</p>
+        <div class="actions">
+            <a class="btn primary" href="projects.html">View Projects</a>
+            <a class="btn secondary" href="assets/files/Dominik-Rimpel-Resume.pdf" target="_blank">Open Resume</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="split">
+        <div class="console reveal">
+            <div class="console-top">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="title">soc-console</span>
+            </div>
+            <p class="line">&gt; <span id="typeLine1" class="type-target" data-text="analyst.profile --load"></span></p>
+            <dl id="consoleList" style="opacity:0; transition:opacity 0.5s ease;">
+                <dt>Location</dt><dd>San Antonio, TX</dd>
+                <dt>Focus</dt><dd>Detection + Response</dd>
+                <dt>SIEM</dt><dd>Sentinel / Splunk</dd>
+                <dt>Certs</dt><dd>CySA+, Sec+, SC-200</dd>
+            </dl>
+            <p class="line">local time: <span id="liveClock">--:--:--</span></p>
+            <p class="line">status: <span class="highlight" id="typeLine2" data-text="ready for investigation"></span></p>
+        </div>
+
+        <div class="panel reveal">
+            <p class="section-label">// At a glance</p>
+            <dl class="console" style="border:none; background:none; padding:0;">
+                <dt style="color:var(--muted)">Experience</dt>
+                <dd style="text-align:left; font-size:1.6rem; font-weight:800; color:var(--amber); font-family:var(--font-mono);"><span data-count-to="3">0</span>+ yrs</dd>
+            </dl>
+            <p style="color:var(--muted); font-size:0.94rem; margin-top:14px;">
+                Shift lead in a 24/7 embedded SOC securing national energy infrastructure. Tier 2 investigation,
+                threat hunting, and detection tuning across OT and IT environments.
+            </p>
+            <div class="security-strip" style="margin-top:20px;">
+                <span>KQL</span><span>SPL</span><span>Sentinel</span><span>Defender</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <p class="section-label">// Core Work</p>
+    <h2 class="section-heading">What I actually spend my time on.</h2>
+
+    <div class="stagger-grid">
+        <svg class="connector-svg" id="connectorSvg">
+            <path id="path12" d=""/>
+            <path id="path23" d=""/>
+        </svg>
+        <div class="stagger-item item-1" id="card1">
+            <span class="idx">01</span>
+            <h3>Threat Detection</h3>
+            <p>Writing and tuning detections across SIEM and NDR workflows to reduce false positives and improve visibility, day to day, alert to alert.</p>
+        </div>
+        <div class="stagger-item item-2" id="card2">
+            <span class="idx">02</span>
+            <h3>Incident Response</h3>
+            <p>Classifying, prioritizing, documenting, and escalating alerts in high-availability environments.</p>
+        </div>
+        <div class="stagger-item item-3" id="card3">
+            <span class="idx">03</span>
+            <h3>Threat Hunting</h3>
+            <p>Using KQL, SPL, and enriched threat intelligence to investigate anomalies proactively.</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <span>&copy; 2026 Dominik Rimpel</span>
+    <span>Built with HTML, CSS &amp; JavaScript</span>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
