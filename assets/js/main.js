@@ -187,31 +187,32 @@ document.documentElement.classList.add('js');
     }
 
     /* ============ LIVE EVENT TICKER ============ */
-    var feed = document.getElementById('tickerFeed');
-    if (feed) {
-      var srcs = ['sentinel', 'defender', 'splunk', 'ndr', 'servicenow', 'carbonblack', 'extrahop'];
-      var evts = [
-        ['query executed', 'i'], ['detection tuned', 'u'], ['alert triaged', 'i'],
-        ['rule updated', 'u'], ['anomaly reviewed', 'em'], ['intel enriched', 'i'],
-        ['incident documented', 'u'], ['escalation cleared', 'i'], ['baseline verified', 'u'],
-        ['false positive suppressed', 'em'], ['hunt query saved', 'i'], ['playbook referenced', 'u']
-      ];
-      var mk = function () {
-        var s = srcs[Math.floor(Math.random() * srcs.length)];
-        var e = evts[Math.floor(Math.random() * evts.length)];
-        var id = Math.floor(Math.random() * 90000 + 10000);
-        var tag = e[1];
-        return '<span>[<' + tag + '>' + s + '</' + tag + '>] ' + e[0] +
-               ' <i>#' + id + '</i></span>';
-      };
-      var build = function () {
-        var out = '';
-        for (var i = 0; i < 14; i++) out += mk();
-        feed.innerHTML = out + out; // duplicate for seamless loop
-      };
-      build();
-      setInterval(build, 46000);
-    }
+    /* ============ TICKER: real toolkit + career timeline ============ */
+var feed = document.getElementById('tickerFeed');
+if (feed) {
+  var items = [
+    ['2022', 'El Paso ISD — IT Apprentice', 'em'],
+    ['TOOL', 'Microsoft Sentinel', 'i'],
+    ['TOOL', 'Splunk', 'i'],
+    ['2023', 'UTSA — SOC Security Analyst', 'em'],
+    ['TOOL', 'KQL', 'i'],
+    ['TOOL', 'SPL', 'i'],
+    ['TOOL', 'Microsoft Defender', 'i'],
+    ['2025', 'BlackSwan — SOC Analyst 1', 'em'],
+    ['TOOL', 'Carbon Black', 'i'],
+    ['TOOL', 'ExtraHop', 'i'],
+    ['CERT', 'Security+ (SY-701)', 'u'],
+    ['TOOL', 'ServiceNow', 'i'],
+    ['CERT', 'SC-200', 'u'],
+    ['2026', 'B.S. Computer Science — UTSA', 'em'],
+    ['CERT', 'CySA+ (CS0-003)', 'u'],
+    ['TOOL', 'NDR / Threat Intel', 'i']
+  ];
+  var block = items.map(function (it) {
+    return '<span><' + it[2] + '>' + it[0] + '</' + it[2] + '> ' + it[1] + '</span>';
+  }).join('');
+  feed.innerHTML = block + block; // duplicated for a seamless loop
+}
 
   });
 })();
