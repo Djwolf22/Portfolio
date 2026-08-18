@@ -1,89 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Dominik Rimpel</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Dominik Rimpel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/images/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="assets/images/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/images/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-<div class="spotlight" id="spotlight"></div>
-<div class="bg-orb one"></div>
-<div class="bg-orb two"></div>
-<p class="side-label">Portfolio / 2026</p>
+<div class="boot" id="boot">
+  <div class="boot-inner">
+    <p class="boot-line">&gt; initializing operations wall<b> ok</b></p>
+    <p class="boot-line">&gt; mounting telemetry feeds<b> ok</b></p>
+    <p class="boot-line">&gt; loading analyst profile<b> ok</b></p>
+    <p class="boot-line">&gt; sector: COMMS<b> ready</b></p>
+    <div class="boot-bar"><i></i></div>
+  </div>
+</div>
 
-<header class="site-header">
-    <nav class="navbar" aria-label="Primary navigation">
-        <a class="brand" href="index.html">DR</a>
-        <button id="menuButton" class="menu-button" type="button" aria-label="Open navigation">Menu</button>
-        <ul id="mainMenu" class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a class="active" href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<div class="sweep"></div>
+<div class="reticle" id="reticle"></div>
+
+<div class="statusbar">
+  <span class="sb-item"><span class="pip"></span> <b>SYSTEM NOMINAL</b></span>
+  <span class="sb-item sb-hide">SECTOR <b>COMMS</b></span>
+  <span class="sb-item sb-hide">THREAT LEVEL <b class="ok">LOW</b></span>
+  <span class="sb-item sb-hide">COVERAGE <b>24/7</b></span>
+  <span class="sb-item sb-push">SESSION <b id="uptime">00:00:00</b></span>
+  <span class="sb-item">CST <b data-clock>--:--:--</b></span>
+</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="mark" href="index.html">
+      <span class="mark-glyph">DR</span>
+      <span class="mark-txt">Rimpel // SOC</span>
+    </a>
+    <button class="navbtn" id="navbtn" type="button">MENU</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a class="on" href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
 <main class="wrap">
 
-<div class="watermark">REACH</div>
-
-<section class="page-title">
-    <p class="eyebrow"><span class="hex-badge"></span> Contact</p>
-    <h1 class="page-heading">Let's <span class="accent">Connect.</span></h1>
-    <p class="page-intro">Open to SOC, detection engineering, and incident response roles. Reach out directly below.</p>
+<section class="slab" style="padding-top:56px;">
+  <span class="kicker"><span class="pip"></span> Comms Channel</span>
+  <h1 class="name" style="font-size:clamp(2.6rem,7vw,5.2rem);">Let's<br><span class="glitch" data-t="Connect">Connect</span></h1>
+  <p class="lede" style="max-width:600px; margin-top:18px;">Open to SOC, detection engineering, and incident response roles. Channels below are monitored daily.</p>
 </section>
 
-<section class="section">
-    <div class="split">
-        <div class="console reveal">
-            <div class="console-top">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <span class="title">status</span>
-            </div>
-            <p class="line">&gt; <span id="typeLine1" class="type-target" data-text="analyst.status --check"></span></p>
-            <dl id="consoleList" style="opacity:0; transition:opacity 0.5s ease;">
-                <dt>Availability</dt><dd>Open to opportunities</dd>
-                <dt>Response time</dt><dd>Within 24 hours</dd>
-                <dt>Location</dt><dd>San Antonio, TX</dd>
-                <dt>Preferred contact</dt><dd>Email</dd>
-            </dl>
-            <p class="line">local time: <span id="liveClock">--:--:--</span></p>
-            <p class="line">status: <span class="highlight" id="typeLine2" data-text="accepting new conversations"></span></p>
-        </div>
-
-        <div class="panel reveal">
-            <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:10px;">Get in Touch</h2>
-            <p style="color:var(--muted); font-size:0.95rem;">The fastest way to reach me is email or LinkedIn, both go straight to my inbox.</p>
-            <div class="contact-links">
-                <a class="contact-link-row" href="mailto:dominikrimp14@gmail.com">
-                    <span class="contact-link-label">Email</span>
-                    <span class="contact-link-value">dominikrimp14@gmail.com</span>
-                </a>
-                <a class="contact-link-row" href="https://linkedin.com/in/dominik-rimpel-dr20" target="_blank" rel="noopener">
-                    <span class="contact-link-label">LinkedIn</span>
-                    <span class="contact-link-value">dominik-rimpel-dr20</span>
-                </a>
-                <a class="contact-link-row" href="assets/files/Dominik-Rimpel-Resume.pdf" target="_blank">
-                    <span class="contact-link-label">Resume</span>
-                    <span class="contact-link-value">View PDF</span>
-                </a>
-            </div>
-        </div>
+<section class="slab" style="padding-top:20px;">
+  <div class="split">
+    <div class="term rv">
+      <div class="term-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">status</span></div>
+      <div class="term-body">
+        <p class="cmd">&gt; <span data-type="analyst.status --check"></span></p>
+        <div class="row"><span>availability</span><b>Open to opportunities</b></div>
+        <div class="row"><span>response time</span><b>Within 24 hours</b></div>
+        <div class="row"><span>location</span><b>San Antonio, TX</b></div>
+        <div class="row"><span>preferred</span><b>Email</b></div>
+        <div class="row"><span>local time</span><b data-clock>--:--:--</b></div>
+        <p class="out">status: <span data-type="accepting new conversations"></span></p>
+      </div>
     </div>
+
+    <div class="panelbox rv">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <h3>Direct Channels</h3>
+      <p>The fastest way to reach me is email or LinkedIn. Both go straight to my inbox.</p>
+      <div class="links">
+        <a class="linkrow" href="mailto:dominikrimp14@gmail.com">
+          <span class="k">Email</span><span class="v">dominikrimp14@gmail.com</span>
+        </a>
+        <a class="linkrow" href="https://linkedin.com/in/dominik-rimpel-dr20" target="_blank" rel="noopener">
+          <span class="k">LinkedIn</span><span class="v">dominik-rimpel-dr20</span>
+        </a>
+        <a class="linkrow" href="assets/files/Dominik-Rimpel-Resume.pdf" target="_blank">
+          <span class="k">Resume</span><span class="v">View PDF</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 </main>
 
-<footer>
-    <span>&copy; 2026 Dominik Rimpel</span>
-    <span>Built with HTML, CSS &amp; JavaScript</span>
+<footer class="foot">
+  <span>&copy; 2026 Dominik Rimpel</span>
+  <span>San Antonio, TX</span>
+  <span>Operations wall v2</span>
 </footer>
+
+<div class="ticker">
+  <span class="ticker-tag">Live Feed</span>
+  <div class="ticker-feed" id="tickerFeed"></div>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>

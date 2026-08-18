@@ -1,102 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience | Dominik Rimpel</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience | Dominik Rimpel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/images/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="assets/images/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/images/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-<div class="spotlight" id="spotlight"></div>
-<div class="bg-orb one"></div>
-<div class="bg-orb two"></div>
-<p class="side-label">Portfolio / 2026</p>
+<div class="boot" id="boot">
+  <div class="boot-inner">
+    <p class="boot-line">&gt; initializing operations wall<b> ok</b></p>
+    <p class="boot-line">&gt; mounting telemetry feeds<b> ok</b></p>
+    <p class="boot-line">&gt; loading analyst profile<b> ok</b></p>
+    <p class="boot-line">&gt; sector: HISTORY<b> ready</b></p>
+    <div class="boot-bar"><i></i></div>
+  </div>
+</div>
 
-<header class="site-header">
-    <nav class="navbar" aria-label="Primary navigation">
-        <a class="brand" href="index.html">DR</a>
-        <button id="menuButton" class="menu-button" type="button" aria-label="Open navigation">Menu</button>
-        <ul id="mainMenu" class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a class="active" href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<div class="sweep"></div>
+<div class="reticle" id="reticle"></div>
+
+<div class="statusbar">
+  <span class="sb-item"><span class="pip"></span> <b>SYSTEM NOMINAL</b></span>
+  <span class="sb-item sb-hide">SECTOR <b>HISTORY</b></span>
+  <span class="sb-item sb-hide">THREAT LEVEL <b class="ok">LOW</b></span>
+  <span class="sb-item sb-hide">COVERAGE <b>24/7</b></span>
+  <span class="sb-item sb-push">SESSION <b id="uptime">00:00:00</b></span>
+  <span class="sb-item">CST <b data-clock>--:--:--</b></span>
+</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="mark" href="index.html">
+      <span class="mark-glyph">DR</span>
+      <span class="mark-txt">Rimpel // SOC</span>
+    </a>
+    <button class="navbtn" id="navbtn" type="button">MENU</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="on" href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
 <main class="wrap">
 
-<div class="watermark">WORK</div>
-
-<section class="page-title">
-    <p class="eyebrow"><span class="hex-badge"></span> Experience</p>
-    <h1 class="page-heading">Hands-On <span class="accent">Background.</span></h1>
-    <p class="page-intro">From imaging lab computers in high school to leading incident response in a 24/7 embedded SOC, this is the hands-on path that got me here.</p>
+<section class="slab" style="padding-top:56px;">
+  <span class="kicker"><span class="pip"></span> Deployment History</span>
+  <h1 class="name" style="font-size:clamp(2.6rem,7vw,5.2rem);">Hands-On<br><span class="glitch" data-t="Background">Background</span></h1>
+  <p class="lede" style="max-width:620px; margin-top:18px;">From imaging lab computers in high school to leading incident response in a 24/7 embedded SOC. This is the path, oldest deployment at the bottom.</p>
 </section>
 
-<section class="section">
-    <div class="timeline">
-        <article class="timeline-item reveal">
-            <div class="timeline-date">July 2025 &mdash; Present</div>
-            <div class="timeline-content">
-                <h2>SOC Analyst 1</h2>
-                <h3>BlackSwan Cybersecurity | San Antonio, TX</h3>
-                <ul>
-                    <li>Assume shift lead responsibilities in a 24/7 embedded SOC supporting national energy infrastructure across OT and IT environments, leading off-hours and weekend incident response.</li>
-                    <li>Develop KQL queries in Microsoft Sentinel and use NDR tooling to detect anomalies and investigate threats.</li>
-                    <li>Perform Tier 2 responsibilities including deeper incident investigation, threat hunting, and escalation support.</li>
-                    <li>Use threat intelligence enrichment and detection tuning to improve correlation and reduce false positives.</li>
-                    <li>Classify, prioritize, and escalate alerts based on threat severity in a high-availability, mission-critical setting.</li>
-                    <li>Assume incident command during off-hours and weekend shifts, coordinating analyst response and ensuring continuity of SOC operations.</li>
-                    <li>Maintain incident response documentation and post-incident reporting in ServiceNow.</li>
-                </ul>
-            </div>
-        </article>
+<section class="slab" style="padding-top:20px;">
+  <div class="shead"><span class="lbl">// Log Stream</span><span class="rule"></span><span class="cnt">03 RECORDS</span></div>
+  <div class="stream">
+    <article class="entry rv">
+      <div class="entry-body">
+        <p class="entry-meta">JUL 2025 &mdash; PRESENT <span class="sev">CURRENT</span></p>
+        <h3>SOC Analyst 1</h3>
+        <p class="org">BlackSwan Cybersecurity // San Antonio, TX</p>
+        <ul>
+          <li>Assume shift lead responsibilities in a 24/7 embedded SOC supporting national energy infrastructure across OT and IT environments, leading off-hours and weekend incident response.</li>
+          <li>Develop KQL queries in Microsoft Sentinel and use NDR tooling to detect anomalies and investigate threats.</li>
+          <li>Perform Tier 2 responsibilities including deeper incident investigation, threat hunting, and escalation support.</li>
+          <li>Use threat intelligence enrichment and detection tuning to improve correlation and reduce false positives.</li>
+          <li>Classify, prioritize, and escalate alerts based on threat severity in a high-availability, mission-critical setting.</li>
+          <li>Assume incident command during off-hours and weekend shifts, coordinating analyst response and ensuring continuity of SOC operations.</li>
+          <li>Maintain incident response documentation and post-incident reporting in ServiceNow.</li>
+        </ul>
+      </div>
+    </article>
 
-        <article class="timeline-item reveal">
-            <div class="timeline-date">Jan 2023 &mdash; July 2025</div>
-            <div class="timeline-content">
-                <h2>SOC Security Analyst</h2>
-                <h3>University of Texas at San Antonio | San Antonio, TX</h3>
-                <ul>
-                    <li>Monitored Windows and Linux security events using Splunk, Microsoft Defender, Carbon Black, and ExtraHop.</li>
-                    <li>Correlated alerts from Abnormal AI and DUO Admin to determine severity and mitigation steps.</li>
-                    <li>Conducted vulnerability assessments and risk analysis to identify and remediate security gaps.</li>
-                    <li>Built and optimized Splunk searches and dashboards for real-time threat detection.</li>
-                    <li>Assisted security engineers with Python scripting and automation of security monitoring tasks using ExtraHop.</li>
-                    <li>Supported incident response with chain of custody procedures for secure device handoff.</li>
-                    <li>Mentored and trained 15+ interns each semester on SOC workflows and security best practices.</li>
-                </ul>
-            </div>
-        </article>
+    <article class="entry rv">
+      <div class="entry-body">
+        <p class="entry-meta">JAN 2023 &mdash; JUL 2025 <span class="sev">CLOSED</span></p>
+        <h3>SOC Security Analyst</h3>
+        <p class="org">University of Texas at San Antonio // San Antonio, TX</p>
+        <ul>
+          <li>Monitored Windows and Linux security events using Splunk, Microsoft Defender, Carbon Black, and ExtraHop.</li>
+          <li>Correlated alerts from Abnormal AI and DUO Admin to determine severity and mitigation steps.</li>
+          <li>Conducted vulnerability assessments and risk analysis to identify and remediate security gaps.</li>
+          <li>Built and optimized Splunk searches and dashboards for real-time threat detection.</li>
+          <li>Assisted security engineers with Python scripting and automation of security monitoring tasks using ExtraHop.</li>
+          <li>Supported incident response with chain of custody procedures for secure device handoff.</li>
+          <li>Mentored and trained 15+ interns each semester on SOC workflows and security best practices.</li>
+        </ul>
+      </div>
+    </article>
 
-        <article class="timeline-item reveal">
-            <div class="timeline-date">Spring 2022 (4 mos.)</div>
-            <div class="timeline-content">
-                <h2>IT Apprentice</h2>
-                <h3>El Paso Independent School District | El Paso, TX</h3>
-                <ul>
-                    <li>Set up and imaged computer labs across multiple schools in the district, roughly 30 machines per lab, configuring OS installations and standard software loadouts.</li>
-                    <li>Connected lab workstations to the network and verified Wi-Fi connectivity as part of new setup and deployment.</li>
-                    <li>Installed, configured, and troubleshot software across lab machines to ensure readiness for classroom use.</li>
-                    <li>Diagnosed and resolved hardware issues, building early hands-on experience with Windows file systems and application deployment paths that later shaped how I approach security investigations.</li>
-                </ul>
-            </div>
-        </article>
-    </div>
+    <article class="entry rv">
+      <div class="entry-body">
+        <p class="entry-meta">SPRING 2022 &mdash; 4 MOS <span class="sev">CLOSED</span></p>
+        <h3>IT Apprentice</h3>
+        <p class="org">El Paso Independent School District // El Paso, TX</p>
+        <ul>
+          <li>Set up and imaged computer labs across multiple schools in the district, roughly 30 machines per lab, configuring OS installations and standard software loadouts.</li>
+          <li>Connected lab workstations to the network and verified Wi-Fi connectivity as part of new setup and deployment.</li>
+          <li>Installed, configured, and troubleshot software across lab machines to ensure readiness for classroom use.</li>
+          <li>Diagnosed and resolved hardware issues, building early hands-on experience with Windows file systems and application deployment paths that later shaped how I approach security investigations.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
 </section>
 </main>
 
-<footer>
-    <span>&copy; 2026 Dominik Rimpel</span>
-    <span>Built with HTML, CSS &amp; JavaScript</span>
+<footer class="foot">
+  <span>&copy; 2026 Dominik Rimpel</span>
+  <span>San Antonio, TX</span>
+  <span>Operations wall v2</span>
 </footer>
+
+<div class="ticker">
+  <span class="ticker-tag">Live Feed</span>
+  <div class="ticker-feed" id="tickerFeed"></div>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>

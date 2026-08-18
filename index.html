@@ -1,122 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominik Rimpel | Cybersecurity Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dominik Rimpel | SOC Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/images/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="assets/images/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/images/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-<div class="spotlight" id="spotlight"></div>
-<div class="bg-orb one"></div>
-<div class="bg-orb two"></div>
-<p class="side-label">Portfolio / 2026</p>
+<div class="boot" id="boot">
+  <div class="boot-inner">
+    <p class="boot-line">&gt; initializing operations wall<b> ok</b></p>
+    <p class="boot-line">&gt; mounting telemetry feeds<b> ok</b></p>
+    <p class="boot-line">&gt; loading analyst profile<b> ok</b></p>
+    <p class="boot-line">&gt; sector: HOME<b> ready</b></p>
+    <div class="boot-bar"><i></i></div>
+  </div>
+</div>
 
-<header class="site-header">
-    <nav class="navbar" aria-label="Primary navigation">
-        <a class="brand" href="index.html">DR</a>
-        <button id="menuButton" class="menu-button" type="button" aria-label="Open navigation">Menu</button>
-        <ul id="mainMenu" class="menu">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<div class="sweep"></div>
+<div class="reticle" id="reticle"></div>
+
+<div class="statusbar">
+  <span class="sb-item"><span class="pip"></span> <b>SYSTEM NOMINAL</b></span>
+  <span class="sb-item sb-hide">SECTOR <b>HOME</b></span>
+  <span class="sb-item sb-hide">THREAT LEVEL <b class="ok">LOW</b></span>
+  <span class="sb-item sb-hide">COVERAGE <b>24/7</b></span>
+  <span class="sb-item sb-push">SESSION <b id="uptime">00:00:00</b></span>
+  <span class="sb-item">CST <b data-clock>--:--:--</b></span>
+</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="mark" href="index.html">
+      <span class="mark-glyph">DR</span>
+      <span class="mark-txt">Rimpel // SOC</span>
+    </a>
+    <button class="navbtn" id="navbtn" type="button">MENU</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a class="on" href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
 <main class="wrap">
 
-<div class="watermark">SOC//DR</div>
-
 <section class="hero">
-    <p class="eyebrow"><span class="hex-badge"></span> Cybersecurity Portfolio</p>
-    <h1 class="mega">
-        <span class="line1">SOC Analyst &mdash;</span>
-        <span class="line2">Dominik <span class="accent">Rimpel.</span></span>
-    </h1>
-
-    <div class="hero-bottom">
-        <p class="lede">Building cleaner detections, stronger investigations, and better response workflows across OT and IT infrastructure.</p>
-        <div class="actions">
-            <a class="btn primary" href="projects.html">View Projects</a>
-            <a class="btn secondary" href="assets/files/Dominik-Rimpel-Resume.pdf" target="_blank">Open Resume</a>
-        </div>
+  <div class="hero-grid">
+    <div>
+      <span class="kicker"><span class="pip"></span> Security Operations Center</span>
+      <h1 class="name">Dominik<br><span class="glitch" data-t="Rimpel">Rimpel</span></h1>
+      <p class="rolebar">&gt; <span class="rot" id="rotator" data-words="shift lead, 24/7 embedded SOC|detection engineer|threat hunter|incident commander|hardware tinkerer"></span></p>
+      <p class="lede">Three years running detections, investigations, and incident response across OT and IT infrastructure. I trace things back to the file path, not just the dashboard.</p>
+      <div class="cta-row">
+        <a class="btn" href="projects.html">Open Case Files</a>
+        <a class="btn ghost" href="assets/files/Dominik-Rimpel-Resume.pdf" target="_blank">Resume</a>
+      </div>
     </div>
-</section>
 
-<section class="section">
-    <div class="split">
-        <div class="console reveal">
-            <div class="console-top">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <span class="title">soc-console</span>
-            </div>
-            <p class="line">&gt; <span id="typeLine1" class="type-target" data-text="analyst.profile --load"></span></p>
-            <dl id="consoleList" style="opacity:0; transition:opacity 0.5s ease;">
-                <dt>Location</dt><dd>San Antonio, TX</dd>
-                <dt>Focus</dt><dd>Detection + Response</dd>
-                <dt>SIEM</dt><dd>Sentinel / Splunk</dd>
-                <dt>Certs</dt><dd>CySA+, Sec+, SC-200</dd>
-            </dl>
-            <p class="line">local time: <span id="liveClock">--:--:--</span></p>
-            <p class="line">status: <span class="highlight" id="typeLine2" data-text="ready for investigation"></span></p>
-        </div>
-
-        <div class="panel reveal">
-            <p class="section-label">// At a glance</p>
-            <dl class="console" style="border:none; background:none; padding:0;">
-                <dt style="color:var(--muted)">Experience</dt>
-                <dd style="text-align:left; font-size:1.6rem; font-weight:800; color:var(--amber); font-family:var(--font-mono);"><span data-count-to="3">0</span>+ yrs</dd>
-            </dl>
-            <p style="color:var(--muted); font-size:0.94rem; margin-top:14px;">
-                Shift lead in a 24/7 embedded SOC securing national energy infrastructure. Tier 2 investigation,
-                threat hunting, and detection tuning across OT and IT environments.
-            </p>
-            <div class="security-strip" style="margin-top:20px;">
-                <span>KQL</span><span>SPL</span><span>Sentinel</span><span>Defender</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <p class="section-label">// Core Work</p>
-    <h2 class="section-heading">What I actually spend my time on.</h2>
-
-    <div class="stagger-grid">
-        <svg class="connector-svg" id="connectorSvg">
-            <path id="path12" d=""/>
-            <path id="path23" d=""/>
+    <div class="radar-cell">
+      <div class="radar">
+        <svg viewBox="0 0 200 200">
+          <circle class="ring" cx="100" cy="100" r="88"/>
+          <circle class="ring" cx="100" cy="100" r="62"/>
+          <circle class="ring" cx="100" cy="100" r="36"/>
+          <circle class="ring" cx="100" cy="100" r="12"/>
+          <line class="cross" x1="100" y1="12" x2="100" y2="188"/>
+          <line class="cross" x1="12" y1="100" x2="188" y2="100"/>
+          <g class="beam">
+            <defs>
+              <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M100,100 L188,100 A88,88 0 0,0 162,38 Z" fill="url(#bg1)"/>
+            <line x1="100" y1="100" x2="188" y2="100" stroke="#00e5ff" stroke-width="1.5"/>
+          </g>
+          <circle class="blip" cx="142" cy="72" r="3"/>
+          <circle class="blip" cx="68" cy="134" r="3"/>
+          <circle class="blip" cx="126" cy="146" r="3"/>
         </svg>
-        <div class="stagger-item item-1" id="card1">
-            <span class="idx">01</span>
-            <h3>Threat Detection</h3>
-            <p>Writing and tuning detections across SIEM and NDR workflows to reduce false positives and improve visibility, day to day, alert to alert.</p>
-        </div>
-        <div class="stagger-item item-2" id="card2">
-            <span class="idx">02</span>
-            <h3>Incident Response</h3>
-            <p>Classifying, prioritizing, documenting, and escalating alerts in high-availability environments.</p>
-        </div>
-        <div class="stagger-item item-3" id="card3">
-            <span class="idx">03</span>
-            <h3>Threat Hunting</h3>
-            <p>Using KQL, SPL, and enriched threat intelligence to investigate anomalies proactively.</p>
-        </div>
+        <p class="radar-cap">Perimeter // active</p>
+      </div>
     </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <p class="k">Experience</p>
+      <p class="v"><span data-count="3">0</span>+ <small>yrs</small></p>
+      <svg class="spark" viewBox="0 0 100 26" preserveAspectRatio="none"><path d="M0,20 L14,14 L28,17 L42,8 L56,12 L70,5 L84,9 L100,3"/></svg>
+    </div>
+    <div class="metric">
+      <p class="k">Certifications</p>
+      <p class="v"><span data-count="3">0</span> <small>active</small></p>
+      <svg class="spark" viewBox="0 0 100 26" preserveAspectRatio="none"><path d="M0,22 L20,22 L20,14 L48,14 L48,7 L100,7"/></svg>
+    </div>
+    <div class="metric">
+      <p class="k">Analysts Mentored</p>
+      <p class="v"><span data-count="15">0</span>+ <small>/ sem</small></p>
+      <svg class="spark" viewBox="0 0 100 26" preserveAspectRatio="none"><path d="M0,24 L16,18 L32,20 L48,11 L64,15 L80,6 L100,8"/></svg>
+    </div>
+    <div class="metric">
+      <p class="k">Environment</p>
+      <p class="v">OT<small>+</small>IT</p>
+      <svg class="spark" viewBox="0 0 100 26" preserveAspectRatio="none"><path d="M0,13 L12,6 L24,19 L36,9 L48,21 L60,10 L72,17 L84,7 L100,13"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="slab">
+  <div class="shead">
+    <span class="lbl">// Active Monitors</span>
+    <span class="rule"></span>
+    <span class="cnt">03 CHANNELS</span>
+  </div>
+  <h2 class="big">What I actually <em>spend my time on.</em></h2>
+
+  <div class="tiles">
+    <div class="tile rv">
+      <div class="tile-top"><span>CH-01</span><span class="st"><span class="pip"></span>LIVE</span></div>
+      <h3>Threat Detection</h3>
+      <p>Writing and tuning detections across SIEM and NDR workflows to cut false positives and sharpen visibility.</p>
+      <div class="bars"><i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.7s"></i></div>
+    </div>
+    <div class="tile rv">
+      <div class="tile-top"><span>CH-02</span><span class="st"><span class="pip"></span>LIVE</span></div>
+      <h3>Incident Response</h3>
+      <p>Classifying, prioritizing, documenting, and escalating alerts in high-availability, mission-critical environments.</p>
+      <div class="bars"><i style="animation-delay:.15s"></i><i style="animation-delay:.35s"></i><i style="animation-delay:.05s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.2s"></i></div>
+    </div>
+    <div class="tile rv">
+      <div class="tile-top"><span>CH-03</span><span class="st"><span class="pip"></span>LIVE</span></div>
+      <h3>Threat Hunting</h3>
+      <p>Using KQL, SPL, and enriched threat intelligence to chase anomalies before they become incidents.</p>
+      <div class="bars"><i style="animation-delay:.3s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.45s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.55s"></i><i style="animation-delay:.35s"></i><i style="animation-delay:.65s"></i><i style="animation-delay:.15s"></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="slab">
+  <div class="shead">
+    <span class="lbl">// Analyst Profile</span>
+    <span class="rule"></span>
+    <span class="cnt">READ ONLY</span>
+  </div>
+  <div class="split">
+    <div class="term rv">
+      <div class="term-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">soc-console</span></div>
+      <div class="term-body">
+        <p class="cmd">&gt; <span data-type="analyst.profile --load"></span></p>
+        <div class="row"><span>location</span><b>San Antonio, TX</b></div>
+        <div class="row"><span>focus</span><b>Detection + Response</b></div>
+        <div class="row"><span>siem</span><b>Sentinel / Splunk</b></div>
+        <div class="row"><span>certs</span><b>CySA+ / Sec+ / SC-200</b></div>
+        <div class="row"><span>local time</span><b data-clock>--:--:--</b></div>
+        <p class="out">status: <span data-type="ready for investigation"></span></p>
+      </div>
+    </div>
+    <div class="panelbox rv">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <h3>Method</h3>
+      <p>Every case runs through the same six questions: <strong>who, what, where, when, why, how.</strong> It's less like solving one problem and more like a chain of puzzles, where finding one answer is what lets you find the next one.</p>
+      <ul class="chips">
+        <li>KQL</li><li>SPL</li><li>Sentinel</li><li>Defender</li><li>Carbon Black</li><li>ExtraHop</li><li>ServiceNow</li>
+      </ul>
+      <a class="arrow" href="about.html">Full profile &rarr;</a>
+    </div>
+  </div>
 </section>
 </main>
 
-<footer>
-    <span>&copy; 2026 Dominik Rimpel</span>
-    <span>Built with HTML, CSS &amp; JavaScript</span>
+<footer class="foot">
+  <span>&copy; 2026 Dominik Rimpel</span>
+  <span>San Antonio, TX</span>
+  <span>Operations wall v2</span>
 </footer>
+
+<div class="ticker">
+  <span class="ticker-tag">Live Feed</span>
+  <div class="ticker-feed" id="tickerFeed"></div>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>

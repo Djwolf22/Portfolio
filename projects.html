@@ -1,54 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Dominik Rimpel</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Dominik Rimpel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/images/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="assets/images/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/images/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
-<div class="spotlight" id="spotlight"></div>
-<div class="bg-orb one"></div>
-<div class="bg-orb two"></div>
-<p class="side-label">Portfolio / 2026</p>
+<div class="boot" id="boot">
+  <div class="boot-inner">
+    <p class="boot-line">&gt; initializing operations wall<b> ok</b></p>
+    <p class="boot-line">&gt; mounting telemetry feeds<b> ok</b></p>
+    <p class="boot-line">&gt; loading analyst profile<b> ok</b></p>
+    <p class="boot-line">&gt; sector: CASEFILES<b> ready</b></p>
+    <div class="boot-bar"><i></i></div>
+  </div>
+</div>
 
-<header class="site-header">
-    <nav class="navbar" aria-label="Primary navigation">
-        <a class="brand" href="index.html">DR</a>
-        <button id="menuButton" class="menu-button" type="button" aria-label="Open navigation">Menu</button>
-        <ul id="mainMenu" class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a class="active" href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<div class="sweep"></div>
+<div class="reticle" id="reticle"></div>
+
+<div class="statusbar">
+  <span class="sb-item"><span class="pip"></span> <b>SYSTEM NOMINAL</b></span>
+  <span class="sb-item sb-hide">SECTOR <b>CASEFILES</b></span>
+  <span class="sb-item sb-hide">THREAT LEVEL <b class="ok">LOW</b></span>
+  <span class="sb-item sb-hide">COVERAGE <b>24/7</b></span>
+  <span class="sb-item sb-push">SESSION <b id="uptime">00:00:00</b></span>
+  <span class="sb-item">CST <b data-clock>--:--:--</b></span>
+</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="mark" href="index.html">
+      <span class="mark-glyph">DR</span>
+      <span class="mark-txt">Rimpel // SOC</span>
+    </a>
+    <button class="navbtn" id="navbtn" type="button">MENU</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a class="on" href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
 <main class="wrap">
 
-<div class="watermark">BUILD</div>
-
-<section class="page-title">
-    <p class="eyebrow"><span class="hex-badge"></span> Projects</p>
-    <h1 class="page-heading">Broad Cyber <span class="accent">Projects.</span></h1>
-    <p class="page-intro">These projects are here to show my diverse interests in all aspects of cyber. They can range from software based projects to hardware based projects (and also anything I'm currently working on).</p>
+<section class="slab" style="padding-top:56px;">
+  <span class="kicker"><span class="pip"></span> Case Files</span>
+  <h1 class="name" style="font-size:clamp(2.6rem,7vw,5.2rem);">Broad Cyber<br><span class="glitch" data-t="Projects">Projects</span></h1>
+  <p class="lede" style="max-width:640px; margin-top:18px;">These projects are here to show my diverse interests in all aspects of cyber. They can range from software based projects to hardware based projects (and also anything I'm currently working on).</p>
 </section>
 
-<section class="section">
-    <div class="project-grid" id="projectsList"></div>
+<section class="slab" style="padding-top:20px;">
+  <div class="shead"><span class="lbl">// Archive</span><span class="rule"></span><span class="cnt">OPEN FILES</span></div>
+  <div class="projects" id="projectsList"></div>
 </section>
 </main>
 
-<footer>
-    <span>&copy; 2026 Dominik Rimpel</span>
-    <span>Built with HTML, CSS &amp; JavaScript</span>
+<footer class="foot">
+  <span>&copy; 2026 Dominik Rimpel</span>
+  <span>San Antonio, TX</span>
+  <span>Operations wall v2</span>
 </footer>
+
+<div class="ticker">
+  <span class="ticker-tag">Live Feed</span>
+  <div class="ticker-feed" id="tickerFeed"></div>
+</div>
 
 <script src="assets/js/projects-data.js"></script>
 <script src="assets/js/main.js"></script>
