@@ -25,6 +25,17 @@ var PROJECTS = [
         tech: "Skills: Raspberry Pi, PHP, wireless security, awareness training",
         link: "https://devpost.com/software/evil-twin-attack",
         image: "assets/images/rowdyhacksx-evil-twin.png"
+    },
+    {
+                title: "Home Network Pi-hole",
+        description: "Set up a Raspberry Pi running Pi-hole to block ads and trackers network-wide at the DNS level.",
+        bullets: [
+            "Configured Pi-hole as the primary DNS resolver for the home network to filter ad and tracker domains before they reach any device.",
+            "Used the built-in dashboard to monitor query logs and block rates across the network."
+        ],
+        tech: "Skills: Raspberry Pi, Pi-hole, DNS filtering, Linux",
+        image: "assets/images/pi-hole.png"
+
     }
 
     // --- To add a new project, copy the block below, fill it in, and add a comma above ---
