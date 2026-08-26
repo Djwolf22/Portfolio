@@ -16,7 +16,7 @@ var PROJECTS = [
     },
     {
         title: "RowdyHacksX: Evil Twin Attack",
-        description: "Led a Cyber and CS student team that built a controlled Evil Twin Attack demo using a Raspberry Pi and a PHP-powered captive portal.",
+        description: "Led a Cyber and CS student team that built a controlled Evil Twin Attack demo using a Raspberry Pi and a PHP-powered captive portal. (Full case breakdown coming soon.)",
         bullets: [
             "Demonstrated wireless network risks in a controlled awareness setting.",
             "Built a captive portal to collect test credentials for training purposes.",
